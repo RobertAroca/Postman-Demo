@@ -1,0 +1,3659 @@
+{
+	"info": {
+		"_postman_id": "1d31039e-cdbb-4357-b29e-e4f8352d89fa",
+		"name": "API TESTING ISA2",
+		"description": "StartFragment\n\nLa colección de Postman para la automatización de las APIs de ISA2 es una colección predefinida de solicitudes de API diseñada para simplificar el proceso de automatización de las API de ISA2. Con esta colección, los desarrolladores pueden aprovechar al máximo las API de ISA2 mediante la ejecución rápida y sencilla de solicitudes predefinidas en Postman. La colección incluye solicitudes para los endpoints más comunes de las API de ISA2, como la autenticación, la gestión de usuarios y la recuperación de datos. Además, la colección se actualiza periódicamente para garantizar que los desarrolladores siempre tengan acceso a las últimas funciones y mejoras de las API de ISA2. Los desarrolladores pueden personalizar la colección para adaptarse a sus necesidades específicas, incluyendo la adición de sus propias solicitudes y la configuración de variables de entorno. En general, la colección de Postman para la automatización de las APIs de ISA2 es una herramienta esencial para cualquier desarrollador que desee aprovechar al máximo las API de ISA2 y automatizar su flujo de trabajo de desarrollo de software.\n\nEndFragment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21137816"
+	},
+	"item": [
+		{
+			"name": "COMPANY",
+			"item": [
+				{
+					"name": "Get Detail User By id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"user_id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/users/9401c1bb-8c2d-4c07-934c-00f92fa9a1e2",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"9401c1bb-8c2d-4c07-934c-00f92fa9a1e2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Companies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtMWtsMll0djhkbE5QNC1jNTdkTzZRR1RWQndhTmsiLCJ0eXAiOiJKV1QifQ.eyJvaWQiOiI0ODg3ZDE0Zi1lN2ZkLTQ4M2YtOGVhOS04YzczMWEzMzJjYzEiLCJzdWIiOiI0ODg3ZDE0Zi1lN2ZkLTQ4M2YtOGVhOS04YzczMWEzMzJjYzEiLCJuYW1lIjoiSnVhbiBDYXJsb3MgTW90dGEiLCJlbWFpbHMiOlsiam1vdHRhQGlncm91cHNvbHV0aW9uLmNvbSJdLCJ0ZnAiOiJCMkNfMV9zaWdpbiIsInNjcCI6IkFkbWluaXN0cmF0aW9uLlJlYWRBbmRXcml0ZSIsImF6cCI6ImJhNWUyNmMxLWFkMTEtNGZhNi1hZTE1LTFjZDAxYmI5NjZhNyIsInZlciI6IjEuMCIsImlhdCI6MTY4MzU3NzkwMSwiYXVkIjoiNjY0NzMzM2YtZTRmYi00NWEwLWFhMTMtYTIyYTYzMTU5Njg1IiwiZXhwIjoxNjgzNTgxNTAxLCJpc3MiOiJodHRwczovL2lzYTJpbWV0cml4LmIyY2xvZ2luLmNvbS90ZnAvOTAxOGRmOGEtYTA0Mi00Y2U3LWE3ZjAtYmRjNjc0ODQ4MjNiL2IyY18xX3NpZ2luL3YyLjAvIiwibmJmIjoxNjgzNTc3OTAxfQ.eSjrw02xcpKREeQ8xjex8RsR1Uo_eCbEcOh0IIPsLS5XBahN7S2t4YgolyuH4iIA5QSmG0VjRlNeXs64rcJxRX57ptY6DidHYMtvaETPoAMibKN0uGgitnc5NTHsoQ0GhaaHx79b2QRkLNwlVxklixpanMzbXQzF90Utj74tQfwZV1m5_Dn9EuDRRC4hl0MYh2KTFygjLvUneDBCxuL0C2zwvB8GfJRxbcyxwzK5CARBGq3alGF56Y2S-kwrjw3lCk4m4SLgA-5Ds3VspbuXKq3tPtskYHOpSxFXBRyxWDCdrcLbqFMskKa3u1RNjD4ov6V4I9P97y71cB1nzWu4vA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/companies",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Company",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"El/la nombre de la compañía ya se encuentra en uso.\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/robert.aroca/Downloads/1649341228Scotiabank_Scotiabank_to_mobilize__100_billion_by_2025_to_suppor.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/companies?full_name=not%20identificated&phone=789654123&identification=123456789&email=notidentificated%40gmail.com&password=Rob%2A931026&company_name=not%20identificated",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies"
+							],
+							"query": [
+								{
+									"key": "full_name",
+									"value": "not%20identificated"
+								},
+								{
+									"key": "phone",
+									"value": "789654123"
+								},
+								{
+									"key": "identification",
+									"value": "123456789"
+								},
+								{
+									"key": "email",
+									"value": "notidentificated%40gmail.com"
+								},
+								{
+									"key": "password",
+									"value": "Rob%2A931026"
+								},
+								{
+									"key": "company_name",
+									"value": "not%20identificated"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"company_id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/companies/d988b3d3-a0bb-4f6f-8dcd-b545b4e2deaa",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"d988b3d3-a0bb-4f6f-8dcd-b545b4e2deaa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Company",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"identification\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/companies/bdf243a0-5a4d-4dfd-8cfd-35e1395a6d36?full_name=not%20identificated&phone=789654123&identification=123456789&email=notidentificated%40gmail.com&state=1&password=Rob%2A931026\n",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"bdf243a0-5a4d-4dfd-8cfd-35e1395a6d36"
+							],
+							"query": [
+								{
+									"key": "full_name",
+									"value": "not%20identificated"
+								},
+								{
+									"key": "phone",
+									"value": "789654123"
+								},
+								{
+									"key": "identification",
+									"value": "123456789"
+								},
+								{
+									"key": "email",
+									"value": "notidentificated%40gmail.com"
+								},
+								{
+									"key": "state",
+									"value": "1"
+								},
+								{
+									"key": "password",
+									"value": "Rob%2A931026\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"full_name\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/companies/d988b3d3-a0bb-4f6f-8dcd-b545b4e2deaa/users",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"d988b3d3-a0bb-4f6f-8dcd-b545b4e2deaa",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"El/la documento de identificacion ya se encuentra en uso.\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"full_name\": \"notIdentificated\",\r\n  \"phone\": \"325698740\",\r\n  \"role\": 3,\r\n  \"identification\": \"1000004745\",\r\n  \"email\": \"notIdentificated93@gmail.com\",\r\n  \"password\": \"Rob*931026\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/companies/e503e826-7a1c-40c7-aea4-aa5563c353d8/users",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"e503e826-7a1c-40c7-aea4-aa5563c353d8",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company Analysts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/companies/e503e826-7a1c-40c7-aea4-aa5563c353d8/analyst-users",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"e503e826-7a1c-40c7-aea4-aa5563c353d8",
+								"analyst-users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company Agents",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/companies/d988b3d3-a0bb-4f6f-8dcd-b545b4e2deaa/agent-users",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"d988b3d3-a0bb-4f6f-8dcd-b545b4e2deaa",
+								"agent-users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(3000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"full_name\": \"VanalistaOne\",\r\n  \"phone\": \"1332232\",\r\n  \"identification\": \"1030635254\",\r\n  \"email\": \"analista1@gmail.com\",\r\n  \"state\": 1,\r\n  \"password\": \"Abc*123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/companies/users/f95c11fe-3518-4124-9df4-266dedcd85d4",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"users",
+								"f95c11fe-3518-4124-9df4-266dedcd85d4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Company User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"El/la usuario con el id <built-in function id> no existe en la base de datos.\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/companies/users/f15aa5c3-99d7-400a-b854-59097f1c510f",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"users",
+								"f15aa5c3-99d7-400a-b854-59097f1c510f"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "GROUPINGS",
+			"item": [
+				{
+					"name": "Get Groupings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/groupings",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groupings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Grouping",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Estás intentando guardar una agrupación que ya se encuentra registrado en la base de datos, por favor revisa los datos del formulario nuevamente.\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/robert.aroca/Downloads/maxresdefault.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/groupings?name=groupingInfected&state=true&associated_company=b4b7358c-d89b-11ed-afa1-0242ac120002",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groupings"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "groupingInfected"
+								},
+								{
+									"key": "state",
+									"value": "true"
+								},
+								{
+									"key": "associated_company",
+									"value": "b4b7358c-d89b-11ed-afa1-0242ac120002"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Grouping",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/groupings/026bb8f0-f022-4fc6-a989-8981a3629a25",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groupings",
+								"026bb8f0-f022-4fc6-a989-8981a3629a25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Grouping",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"name\": \"string\",\r\n  \"photo\": \"string\",\r\n  \"state\": true,\r\n  \"created_at\": \"2023-05-05T22:14:54.165245\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/groupings/4f7fe0ee-243b-4c3a-bffb-a31d9021edbe?name=groupingInfected&state=false",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groupings",
+								"4f7fe0ee-243b-4c3a-bffb-a31d9021edbe"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "groupingInfected"
+								},
+								{
+									"key": "state",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Groupings By User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/companies/9401c1bb-8c2d-4c07-934c-00f92fa9a1e2/groupings",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"9401c1bb-8c2d-4c07-934c-00f92fa9a1e2",
+								"groupings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Groupings Summary",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"company\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/companies/9401c1bb-8c2d-4c07-934c-00f92fa9a1e2/groupings/summary?start_date=2023-04-01&end_date=2023-04-30",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"9401c1bb-8c2d-4c07-934c-00f92fa9a1e2",
+								"groupings",
+								"summary"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2023-04-01"
+								},
+								{
+									"key": "end_date",
+									"value": "2023-04-30"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "CAMPAIGNS",
+			"item": [
+				{
+					"name": "Get Campaigns",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"name_campaign\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/campaigns",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"campaigns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Campaign",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"El nombre de la campaña que intenta crear ya existe\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/robert.aroca/Downloads/channels4_profile.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/campaigns?name=campaign%20defeat&country=COL&type=Ventas&is_conversation=false&is_mac=false&grouping_id=026bb8f0-f022-4fc6-a989-8981a3629a25&state=true",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"campaigns"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "campaign%20defeat"
+								},
+								{
+									"key": "country",
+									"value": "COL"
+								},
+								{
+									"key": "type",
+									"value": "Ventas"
+								},
+								{
+									"key": "is_conversation",
+									"value": "false"
+								},
+								{
+									"key": "is_mac",
+									"value": "false"
+								},
+								{
+									"key": "grouping_id",
+									"value": "026bb8f0-f022-4fc6-a989-8981a3629a25"
+								},
+								{
+									"key": "state",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Campaign",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/campaigns/1501e7b6-a0d2-4e37-b45b-cfda3223cb43",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"campaigns",
+								"1501e7b6-a0d2-4e37-b45b-cfda3223cb43"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Campaign",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/campaigns/c7648ca7-1c01-4278-8412-e522335630eb?name=campaign%20defeat&is_conversation=true&is_mac=false&state=true",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"campaigns",
+								"c7648ca7-1c01-4278-8412-e522335630eb"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "campaign%20defeat"
+								},
+								{
+									"key": "is_conversation",
+									"value": "true"
+								},
+								{
+									"key": "is_mac",
+									"value": "false"
+								},
+								{
+									"key": "state",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Campaign Conversation Keywords",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/campaigns/recordings/BANCOLST_20230401-143317_3531838_1680377540_52164770_3187324905-all.mp3/keywords",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"campaigns",
+								"recordings",
+								"BANCOLST_20230401-143317_3531838_1680377540_52164770_3187324905-all.mp3",
+								"keywords"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Campaign Conversation Keywords",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"cluster\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/campaigns/recordings/BANCOLST_20230401-143317_3531838_1680377540_52164770_3187324905-all.mp3/scores",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"campaigns",
+								"recordings",
+								"BANCOLST_20230401-143317_3531838_1680377540_52164770_3187324905-all.mp3",
+								"scores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Campaigns Agent",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/agents/{agent_id}/campaigns",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agents",
+								"{agent_id}",
+								"campaigns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Campaigns Grouping",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"name_campaign\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(6000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/groupings/026bb8f0-f022-4fc6-a989-8981a3629a25/campaigns",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groupings",
+								"026bb8f0-f022-4fc6-a989-8981a3629a25",
+								"campaigns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Campaigns Summary By Grouping",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"grouping\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/groupings/026bb8f0-f022-4fc6-a989-8981a3629a25/9401c1bb-8c2d-4c07-934c-00f92fa9a1e2/campaigns/summary?start_date=2023-04-01&end_date=2023-04-30",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groupings",
+								"026bb8f0-f022-4fc6-a989-8981a3629a25",
+								"9401c1bb-8c2d-4c07-934c-00f92fa9a1e2",
+								"campaigns",
+								"summary"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2023-04-01"
+								},
+								{
+									"key": "end_date",
+									"value": "2023-04-30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Campaigns Summary By Grouping",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/groupings/026bb8f0-f022-4fc6-a989-8981a3629a25/9401c1bb-8c2d-4c07-934c-00f92fa9a1e2/campaigns/graphics?start_date=2023-04-01&end_date=2023-04-30",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groupings",
+								"026bb8f0-f022-4fc6-a989-8981a3629a25",
+								"9401c1bb-8c2d-4c07-934c-00f92fa9a1e2",
+								"campaigns",
+								"graphics"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2023-04-01"
+								},
+								{
+									"key": "end_date",
+									"value": "2023-04-30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Campaign Types",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"type\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/campaigns/templates/types",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"campaigns",
+								"templates",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Campaign Summary",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"KPIs\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/campaigns/1501e7b6-a0d2-4e37-b45b-cfda3223cb43/summary?start_date=2023-04-01&end_date=2023-04-30",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"campaigns",
+								"1501e7b6-a0d2-4e37-b45b-cfda3223cb43",
+								"summary"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2023-04-01"
+								},
+								{
+									"key": "end_date",
+									"value": "2023-04-30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Campaign Consumption",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"KPIs\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/campaigns/00dd31cf-9fb7-4f3f-b90e-fc850e8d8182/consumption?start_date=2023-04-01&end_date=2023-04-30",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"campaigns",
+								"00dd31cf-9fb7-4f3f-b90e-fc850e8d8182",
+								"consumption"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2023-04-01"
+								},
+								{
+									"key": "end_date",
+									"value": "2023-04-30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Call Analysis Keywords",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/campaigns/8ce58cdf-eb97-416a-b16f-cb01ca1763cf/call-analysis-keywords?start_date=2023-04-01&end_date=2023-04-30",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"campaigns",
+								"8ce58cdf-eb97-416a-b16f-cb01ca1763cf",
+								"call-analysis-keywords"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2023-04-01"
+								},
+								{
+									"key": "end_date",
+									"value": "2023-04-30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Campaigns Clusters Scores",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/campaigns/8ce58cdf-eb97-416a-b16f-cb01ca1763cf/clusters-scores?start_date=2023-04-01&end_date=2023-04-30",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"campaigns",
+								"8ce58cdf-eb97-416a-b16f-cb01ca1763cf",
+								"clusters-scores"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2023-04-01"
+								},
+								{
+									"key": "end_date",
+									"value": "2023-04-30"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CALL STRUCTURE",
+			"item": [
+				{
+					"name": "Get Call Structures By Campaign Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"call_structure\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/campaigns/0cbd3630-2350-4b93-9252-ec5774ac904d/call_structures",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"campaigns",
+								"0cbd3630-2350-4b93-9252-ec5774ac904d",
+								"call_structures"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Call Structures",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"call_structure\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/call-structures",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"call-structures"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Call Structure",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"detail\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"postmanCallStructure\",\r\n  \"active\": false,\r\n  \"campaign_id\": \"0cbd3630-2350-4b93-9252-ec5774ac904d\",\r\n  \"modules\": [\r\n    {\r\n      \"title\": \"newSuperModule\",\r\n      \"children\": [\r\n        {\r\n          \"title\": \"backCluster\",\r\n          \"percentage\": 0,\r\n          \"children\": [\r\n            {\r\n              \"title\": \"twoEleven\",\r\n              \"category\": \"90da2591-e58f-4129-b0b4-e566015d02af\"\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/call-structures",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"call-structures"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Call Structure Detail By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"key\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(3000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/call-structures/da734893-d0bf-489c-8b4e-b5540ba618ae/detail",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"call-structures",
+								"da734893-d0bf-489c-8b4e-b5540ba618ae",
+								"detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Call Structure Components By Campaign Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"modules\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(4000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/campaigns/0cbd3630-2350-4b93-9252-ec5774ac904d/call-structures-components",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"campaigns",
+								"0cbd3630-2350-4b93-9252-ec5774ac904d",
+								"call-structures-components"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Call Structure Active",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/call-structures/212257e2-7d59-4c3e-a7df-0f6e30b2d751/active",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"call-structures",
+								"212257e2-7d59-4c3e-a7df-0f6e30b2d751",
+								"active"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Call Structure",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"postmanCallStructureOne\",\r\n  \"active\": false,\r\n  \"modules\": [\r\n    {\r\n      \"key\": \"9e56260d-0e08-4c23-b333-572c65c60aae\",\r\n      \"title\": \"newSuperModuleOne\",\r\n      \"children\": [\r\n        {\r\n          \"key\": \"e2d9dc59-0bbb-4505-a5ab-d52b7bd415c9\",\r\n          \"title\": \"backClusterOne\",\r\n          \"percentage\": 100,\r\n          \"children\": [\r\n            {\r\n              \"key\": \"d9dcb2ca-ac5d-4b83-b64d-ef0ee55e4a42\",\r\n              \"title\": \"twoElevenOne\",\r\n              \"category\": \"90da2591-e58f-4129-b0b4-e566015d02af\"\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/call-structures/212257e2-7d59-4c3e-a7df-0f6e30b2d751",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"call-structures",
+								"212257e2-7d59-4c3e-a7df-0f6e30b2d751"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Call Structure",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"El/la estructura de llamada con el id 0866dcab-ce82-4640-b7a7-3afd25877df4 no existe en la base de datos.\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/call-structures/0866dcab-ce82-4640-b7a7-3afd25877df4",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"call-structures",
+								"0866dcab-ce82-4640-b7a7-3afd25877df4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CATEGORIES",
+			"item": [
+				{
+					"name": "Get All Categories By Campaign",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/campaigns/0cbd3630-2350-4b93-9252-ec5774ac904d/categories",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"campaigns",
+								"0cbd3630-2350-4b93-9252-ec5774ac904d",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/categories/90da2591-e58f-4129-b0b4-e566015d02af",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"90da2591-e58f-4129-b0b4-e566015d02af"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"category\": \"noRecomendada\",\r\n  \"emoji\": \"addAlert\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/categories/cdf1b827-19cc-4dad-a883-f044220d9b05",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"cdf1b827-19cc-4dad-a883-f044220d9b05"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"detail\");\r",
+									"});\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/categories/c4509cfb-36ab-47ed-b34e-d149e6512b2e",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"c4509cfb-36ab-47ed-b34e-d149e6512b2e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"detail\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"category\": \"no recomendada\",\r\n  \"emoji\": \"close\",\r\n  \"campaign_id\": \"0cbd3630-2350-4b93-9252-ec5774ac904d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/categories",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MODULES",
+			"item": [
+				{
+					"name": "Get All Modules By Call Structure",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"campaign_id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/call_structures/da734893-d0bf-489c-8b4e-b5540ba618ae/modules",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"call_structures",
+								"da734893-d0bf-489c-8b4e-b5540ba618ae",
+								"modules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Modules By Campaign",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/campaigns/0cbd3630-2350-4b93-9252-ec5774ac904d/modules",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"campaigns",
+								"0cbd3630-2350-4b93-9252-ec5774ac904d",
+								"modules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Module By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/modules/93a1cab0-775d-4ebc-b998-a6f33b7a668f",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"modules",
+								"93a1cab0-775d-4ebc-b998-a6f33b7a668f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Details Modules By Ids",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"detail\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/modules/details/by-93a1cab0-775d-4ebc-b998-a6f33b7a668f",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"modules",
+								"details",
+								"by-93a1cab0-775d-4ebc-b998-a6f33b7a668f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CLUSTERS",
+			"item": [
+				{
+					"name": "Get All Clusters By Call Structure Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/call-structures/da734893-d0bf-489c-8b4e-b5540ba618ae/clusters",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"call-structures",
+								"da734893-d0bf-489c-8b4e-b5540ba618ae",
+								"clusters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Clusters By Campaign",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/campaigns/0cbd3630-2350-4b93-9252-ec5774ac904d/clusters",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"campaigns",
+								"0cbd3630-2350-4b93-9252-ec5774ac904d",
+								"clusters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Cluster By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/clusters/0f7759ae-a4bf-4914-9e90-17d53394baba",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"clusters",
+								"0f7759ae-a4bf-4914-9e90-17d53394baba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Details Clusters By Ids",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"detail\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/clusters/details/by-0f7759ae-a4bf-4914-9e90-17d53394baba-74b4d511-3ebc-4b60-ba63-1a7c72d8f87d",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"clusters",
+								"details",
+								"by-0f7759ae-a4bf-4914-9e90-17d53394baba-74b4d511-3ebc-4b60-ba63-1a7c72d8f87d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "KEYWORDS",
+			"item": [
+				{
+					"name": "Get Keywords By Call Structure",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/call-structures/da734893-d0bf-489c-8b4e-b5540ba618ae/keywords",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"call-structures",
+								"da734893-d0bf-489c-8b4e-b5540ba618ae",
+								"keywords"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download Keywords By Call Structure",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Tema,Palabra,Categoru\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/call-structures/da734893-d0bf-489c-8b4e-b5540ba618ae/download-keywords",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"call-structures",
+								"da734893-d0bf-489c-8b4e-b5540ba618ae",
+								"download-keywords"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Keywords By Campaign",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/campaigns/0cbd3630-2350-4b93-9252-ec5774ac904d/keywords",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"campaigns",
+								"0cbd3630-2350-4b93-9252-ec5774ac904d",
+								"keywords"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Keyword By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/keywords/2e46ffc2-3a21-4c84-9c56-309e7c0296c7",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"keywords",
+								"2e46ffc2-3a21-4c84-9c56-309e7c0296c7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AGENTS",
+			"item": [
+				{
+					"name": "Create Agent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"detail\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"campaign_id\": \"0cbd3630-2350-4b93-9252-ec5774ac904d\",\r\n  \"name\": \"postmanAgent\",\r\n  \"identification\": \"55555555\",\r\n  \"gender\": \"M\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/agents",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Agent By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/agents/f2510455-2a7b-4a1d-a7d0-19c70a2d040d",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agents",
+								"f2510455-2a7b-4a1d-a7d0-19c70a2d040d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Agent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"ARCE SANTANILLA BRAYAN STIVEN\",\r\n  \"identification\": \"1005773075\",\r\n  \"gender\": \"M\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/agents/f2510455-2a7b-4a1d-a7d0-19c70a2d040d",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agents",
+								"f2510455-2a7b-4a1d-a7d0-19c70a2d040d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Agents By Campaign",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/campaigns/0cbd3630-2350-4b93-9252-ec5774ac904d/agents",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"campaigns",
+								"0cbd3630-2350-4b93-9252-ec5774ac904d",
+								"agents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download Agents By Campaign",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"name,identification,gender\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/campaigns/0cbd3630-2350-4b93-9252-ec5774ac904d/download-agents",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"campaigns",
+								"0cbd3630-2350-4b93-9252-ec5774ac904d",
+								"download-agents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Agents",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"detail\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/campaigns/0cbd3630-2350-4b93-9252-ec5774ac904d/upload-agents",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"campaigns",
+								"0cbd3630-2350-4b93-9252-ec5774ac904d",
+								"upload-agents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Agent Recordings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/agents/675ce76b-733d-46ab-bc89-255dcc9e8d5d/0cbd3630-2350-4b93-9252-ec5774ac904d/recordings?start_date=2023-04-01&end_date=2023-05-30",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agents",
+								"675ce76b-733d-46ab-bc89-255dcc9e8d5d",
+								"0cbd3630-2350-4b93-9252-ec5774ac904d",
+								"recordings"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2023-04-01"
+								},
+								{
+									"key": "end_date",
+									"value": "2023-05-30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recording Score",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"filename\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/agents/recordings/BANCOLSE_20230412-160123_3514426_1681333209_1026287271_3118974438-all.mp3/scores",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agents",
+								"recordings",
+								"BANCOLSE_20230412-160123_3514426_1681333209_1026287271_3118974438-all.mp3",
+								"scores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Agents Results By Campaign Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/agents/0cbd3630-2350-4b93-9252-ec5774ac904d/results?start_date=2023-04-01&end_date=2023-05-30",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agents",
+								"0cbd3630-2350-4b93-9252-ec5774ac904d",
+								"results"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2023-04-01"
+								},
+								{
+									"key": "end_date",
+									"value": "2023-05-30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Agents Results By Conversation Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"audio_url\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/agents/conversations/644985fbd798d19ca737b9d3",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agents",
+								"conversations",
+								"644985fbd798d19ca737b9d3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "THERIUM",
+			"item": [
+				{
+					"name": "Tracking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"campaign_name\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/therium-tracker/026bb8f0-f022-4fc6-a989-8981a3629a25?start_date=2023-04-01",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"therium-tracker",
+								"026bb8f0-f022-4fc6-a989-8981a3629a25"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2023-04-01"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MAC",
+			"item": [
+				{
+					"name": "Get All Macs By Campaign",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/campaigns/0cbd3630-2350-4b93-9252-ec5774ac904d/macs",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"campaigns",
+								"0cbd3630-2350-4b93-9252-ec5774ac904d",
+								"macs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Summary Macs By Campaign",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"filename\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(20000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/campaigns/0cbd3630-2350-4b93-9252-ec5774ac904d/macs/summary?start_date=2023-04-01&end_date=2023-05-09",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"campaigns",
+								"0cbd3630-2350-4b93-9252-ec5774ac904d",
+								"macs",
+								"summary"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2023-04-01"
+								},
+								{
+									"key": "end_date",
+									"value": "2023-05-09"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Mac Detail By Filename",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"filename\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/macs/BANCOLSE_20230412-160123_3514426_1681333209_1026287271_3118974438-all.mp3/detail",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"macs",
+								"BANCOLSE_20230412-160123_3514426_1681333209_1026287271_3118974438-all.mp3",
+								"detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Mac",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"detail\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name_mac\": \"postmanMacDelete\",\r\n  \"campaign_id\": \"0cbd3630-2350-4b93-9252-ec5774ac904d\",\r\n  \"phrases_target\": [\r\n    \"esta de acuerdo\"\r\n  ],\r\n  \"responses_target\": [\r\n    \"si\"\r\n  ],\r\n  \"color\": \"green\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/macs",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"macs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Mac",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"name_mac\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name_mac\": \"postmanMac\",\r\n  \"campaign_id\": \"0cbd3630-2350-4b93-9252-ec5774ac904d\",\r\n  \"phrases_target\": [\r\n    \"esta de acuerdo con la activacion\"\r\n  ],\r\n  \"responses_target\": [\r\n    \"si\"\r\n  ],\r\n  \"color\": \"red\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/macs/f3eef9a1-2242-453d-8311-bf0283575f1f",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"macs",
+								"f3eef9a1-2242-453d-8311-bf0283575f1f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Mac",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"detail\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://isa2-imetrix-api-admin-qa.azurewebsites.net/api/v1/macs/05966dcf-e277-45f8-94d0-219d9da65da5",
+							"protocol": "https",
+							"host": [
+								"isa2-imetrix-api-admin-qa",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"macs",
+								"05966dcf-e277-45f8-94d0-219d9da65da5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtMWtsMll0djhkbE5QNC1jNTdkTzZRR1RWQndhTmsiLCJ0eXAiOiJKV1QifQ.eyJvaWQiOiI5NTljNTZlZS1iOTliLTQ0ZjMtYmFlMy1jNDdmZjU0MWUwNmQiLCJzdWIiOiI5NTljNTZlZS1iOTliLTQ0ZjMtYmFlMy1jNDdmZjU0MWUwNmQiLCJuYW1lIjoiU29wb3J0ZSBJU0EgMiIsImVtYWlscyI6WyJpc2EyLXNvcG9ydGVAaW1ldHJpeC5jb20uY28iXSwidGZwIjoiQjJDXzFfc2lnaW4iLCJzY3AiOiJBZG1pbmlzdHJhdGlvbi5SZWFkQW5kV3JpdGUiLCJhenAiOiIzZjliNWM0My1mZmQ4LTQwNTYtOTgwOS1hZTUzOTFkNjllMWEiLCJ2ZXIiOiIxLjAiLCJpYXQiOjE2ODY5Mjk0NDcsImF1ZCI6ImIzZDQ4MTcyLTJhZGUtNDFhMS05NzU0LTVmNjEyNGY2MDU3YSIsImV4cCI6MTY4NjkzMzA0NywiaXNzIjoiaHR0cHM6Ly9pc2EycWEuYjJjbG9naW4uY29tL3RmcC9mNjEwNjViMi1hNjdmLTQ3N2EtYmFjZi1jZDYyMTVmMzZiZDAvYjJjXzFfc2lnaW4vdjIuMC8iLCJuYmYiOjE2ODY5Mjk0NDd9.JF8fP_VJSugiue2r42Jn08enlcIVdUpay2eddjO7jpMoaIBI4365JFhFcLGrnUCYfk5H3QQ0M-cDlcV5AJnxnEXJb46ZTash-dpFqkLz3ud_bozeFYsX0GC97Hw6LlJqP9tcQY_6dckDPfmp39jcSwsrzS8ElMwHuHQpd9YFsPjS0y4AHgTG7L4W4KjjoPXhUS3cCU2-NghD3It37CXrYQ5T1zkEjGqmyq24oeaTHXaR6A_DjiToRW3KyEj9BgQX-j4iRDsvnHtp2b54lquOTuXvdCV5w-hbhiycmCG54AKJEHGdiPk3uZMg2Ie9FLl0r0WmnlchV0qQw-u4BNMPYg",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
